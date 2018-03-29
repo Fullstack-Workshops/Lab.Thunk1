@@ -7,17 +7,17 @@ const GOT_PETS_FROM_SERVER = 'GOT_PETS_FROM_SERVER'
 
 // VVV your code here VVV
 
-  const gotPets = (pets) => ({
-    type: GOT_PETS_FROM_SERVER,
-    pets
-  })
+const gotPets = (pets) => ({
+  type: GOT_PETS_FROM_SERVER,
+  pets
+})
 
-  export const getPets = () => {
-    return async (dispatch) => {
-      const {data} = await axios.get('/pets')
-      dispatch(gotPets(data))
-    }
+export const getPets = () => {
+  return async (dispatch) => {
+    const {data} = await axios.get('/pets')
+    dispatch(gotPets(data))
   }
+}
 
 // ^^^ your code here ^^^
 
