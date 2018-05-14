@@ -13,7 +13,7 @@ const gotPets = (pets) => ({
 })
 
 export const getPets = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState, {axios}) => {
     const {data} = await axios.get('/pets')
     dispatch(gotPets(data))
   }
@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-const middlewares = applyMiddleware(loggingMiddleware, thunkMiddleware)
+const middlewares = applyMiddleware(loggingMiddleware, thunkMiddleware.withExtraArgument({axios}))
 const store = createStore(reducer, middlewares)
 
 export default store
