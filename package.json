@@ -6,7 +6,9 @@
   "author": "",
   "description": "",
   "scripts": {
-    "start": "webpack -w & json-server db.json --static public"
+    "start": "npm run build-watch & npm run start-server",
+    "build-watch": "webpack -w",
+    "start-server": "json-server db.json --static public"
   },
   "dependencies": {
     "axios": "^0.18.0",
